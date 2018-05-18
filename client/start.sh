@@ -129,6 +129,7 @@ cpSetupScript(){
   cp $DIR/restore-mac-proxy-settings.sh "$HOME/${CONFIG_DIR}/${shell}/"
   cp $DIR/set-mac-proxy-settings.sh "$HOME/${CONFIG_DIR}/${shell}/"
   cp $DIR/get-mac-proxy-settings.sh "$HOME/${CONFIG_DIR}/${shell}/"
+  cp $DIR/get-mac-network-services.sh "$HOME/${CONFIG_DIR}/${shell}/"
   return 0
 }
 
