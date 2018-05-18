@@ -127,9 +127,7 @@ checkProfileConfig(){
 cpSetupScript(){
   cp $DIR/set-mac-http-proxy-settings.sh "$HOME/${CONFIG_DIR}/${shell}/"
   cp $DIR/restore-mac-proxy-settings.sh "$HOME/${CONFIG_DIR}/${shell}/"
-  cp $DIR/set-mac-proxy-bypass-domain.sh "$HOME/${CONFIG_DIR}/${shell}/"
   cp $DIR/set-mac-proxy-settings.sh "$HOME/${CONFIG_DIR}/${shell}/"
-  cp $DIR/set-mac-proxy-bypass-domain.sh "$HOME/${CONFIG_DIR}/${shell}/"
   cp $DIR/get-mac-proxy-settings.sh "$HOME/${CONFIG_DIR}/${shell}/"
   return 0
 }
@@ -211,9 +209,9 @@ help(){
   colorEcho ${BLUE} "命令行命令 testproxy 测试命令,访问 Google"
   colorEcho ${YELLOW} "怎么没有自动代理的命令?"
   colorEcho ${BLUE} "v2ray 是自动判断 IP 的, 国外的网站才走代理的, 国内不走代理, v2ray 原理上就是自动代理了"
-  colorEcho ${YELLOW} "如果还是有判断不合理的时候怎么办"
+  colorEcho ${YELLOW} "如果还是有判断不合理的时候怎么办?"
   colorEcho ${BLUE} "这种情况多发生在浏览国内的网站时, 我一般会执行 unsetproxy 关掉代理, 等操作结束在 setproxy 打开代理 "
-  colorEcho ${YELLOW} "如果我忘记了这些命令怎么办"
+  colorEcho ${YELLOW} "如果我忘记了这些命令怎么办?"
   colorEcho ${BLUE} "这些命令实际上是 shell 的命令别名, 可以在 $HOME/${PROFILE} 文件的最后面找到"
 }
 
