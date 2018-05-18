@@ -1,0 +1,149 @@
+{
+    "outboundDetour" : [
+        {
+            "protocol" : "freedom",
+            "tag" : "direct",
+            "settings" : {}
+        },
+        {
+            "protocol": "blackhole",
+            "settings": {},
+            "tag": "block"
+        }
+    ],
+    "inbound" : {
+        "listen" : "127.0.0.1",
+        "domainOverride": ["http", "tls"],
+        "port" : 1086,
+        "protocol" : "socks",
+        "settings" : {
+            "auth" : "noauth",
+            "udp" : false,
+            "ip" : "127.0.0.1"
+        }
+    },
+    "outbound" : {
+        "protocol" : "vmess",
+        "settings" : {
+            "vnext" : [
+                {
+                    "address" : "207.148.22.68",
+                    "port" : 4389,
+                    "users" : [
+                        {
+                            "id" : "80124b22-bc36-46fe-a2ec-6500846f2251",
+                            "alterId" : 64,
+                            "security" : "auto",
+                            "level" : 1
+                        }
+                    ]
+                }
+            ]
+        },
+        "streamSettings" : {
+            "network" : "kcp",
+            "kcpSettings" : {
+                "header" : {
+                    "type" : "none"
+                },
+                "mtu" : 1350,
+                "congestion" : false,
+                "tti" : 20,
+                "uplinkCapacity" : 5,
+                "writeBufferSize" : 1,
+                "readBufferSize" : 1,
+                "downlinkCapacity" : 5 
+            }
+        }
+    },
+    "log" : {
+        "loglevel" : "none",
+        "error" : "/usr/local/var/log/v2ray/error.log",
+        "access" : "/usr/local/var/log/v2ray/access.log"
+    },
+    "dns": {
+        "hosts": {},
+        "servers": [
+            "223.5.5.5",
+            "114.114.114.114",
+            "localhost"
+        ]
+    },
+    "routing" : {
+        "strategy" : "rules",
+        "settings" : {
+            "domainStrategy" : "IPIfNonMatch",
+            "rules" : [
+                {
+                    "port" : "1-52",
+                    "type" : "field",
+                    "outboundTag" : "direct"
+                },
+                {
+                    "type": "field",
+                    "port": 53,
+                    "network": "udp", 
+                    "outboundTag": "direct"
+                },
+                {
+                    "domain": [
+                        "tanx.com"
+                    ],
+                    "type": "field",
+                    "outboundTag": "block"
+                },
+                {
+                    "port" : "54-79",
+                    "type" : "field",
+                    "outboundTag" : "direct"
+                },
+                {
+                    "port" : "81-442",
+                    "type" : "field",
+                    "outboundTag" : "direct"
+                },
+                {
+                    "port" : "444-65535",
+                    "type" : "field",
+                    "outboundTag" : "direct"
+                },
+                {
+                    "type" : "field",
+                    "ip" : [
+                        "0.0.0.0\/8",
+                        "10.0.0.0\/8",
+                        "100.64.0.0\/10",
+                        "127.0.0.0\/8",
+                        "169.254.0.0\/16",
+                        "172.16.0.0\/12",
+                        "192.0.0.0\/24",
+                        "192.0.2.0\/24",
+                        "192.168.0.0\/16",
+                        "198.18.0.0\/15",
+                        "198.51.100.0\/24",
+                        "203.0.113.0\/24",
+                        "::1\/128",
+                        "fc00::\/7",
+                        "fe80::\/10",
+                        "geoip:cn"
+                    ],
+                    "outboundTag" : "direct"
+                },
+                {
+                    "type": "chinasites",
+                    "outboundTag": "direct"
+                }
+            ]
+        }
+    },
+    "policy": {
+        "levels": {
+            "1": {
+                "handshake": 4,
+                "connIdle": 300,
+                "uplinkOnly": 5,
+                "downlinkOnly": 30 
+            }
+        }
+    }
+}
