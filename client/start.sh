@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # If not specify, default meaning of return value:
 # 0: Success
 # 1: System error
@@ -8,6 +6,7 @@
 
 CONFIG_DIR="Dropbox/bash"
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+PROFILE=""
 
 #######color code########
 RED="31m"      # Error message
@@ -85,26 +84,40 @@ downloadPrivoxy(){
   return 0
 }
 
+checkShell(){
+  colorEcho ${BLUE} "check shell type"
+  shell=$(echo $SHELL | awk -F / '{print $NF}')
+  if [[ "$shell" = "bash" ]];then
+    colorEcho ${YELLOW} "You are using Bash"
+    PROFILE=".profile"
+    return 0
+  elif [[ "$shell" = "zsh" ]];then
+    colorEcho ${YELLOW} "You are using Zsh"
+    PROFILE=".zshrc"
+    return 1
+  fi
+}
+
 checkProfile(){
   colorEcho ${BLUE} "check profile settings existed or not"
-  if [[ -f ~/.profile ]];then
-    colorEcho ${YELLOW} "profile file existed"
+  if [[ -f ~/${PROFILE} ]];then
+    colorEcho ${YELLOW} "profile ${PROFILE} file existed"
     return 0
   else
-    colorEcho ${YELLOW} "profile file dont exist, Creating"
-    touch ~/.profile
+    colorEcho ${RED} "profile ${PROFILE} file dont exist, Creating"
+    touch ~/${PROFILE}
   fi
   return 0
 }
 
 checkProfileConfig(){
   colorEcho ${BLUE} "check profile configuration"
-  grep -q -F "proxy-settings-from-max" ~/.profile
+  grep -q -F "proxy-settings-from-max" ~/${PROFILE}
   if [[ $? -eq 0 ]];then
     colorEcho ${YELLOW} "Profile settings already existed"
     return 1 
   else
-    colorEcho ${YELLOW} "Profile settings dont existed"
+    colorEcho ${RED} "Profile settings dont existed, creating"
   fi
   return 0
 }
@@ -133,18 +146,19 @@ checkConfigDir(){
 }
 
 setProfile(){
-  echo '# proxy-settings-from-max
-  export http_proxy="http://127.0.0.1:8118"
-  export https_proxy="http://127.0.0.1:8118"
-  alias unsetttyproxy="unset http_proxy;unset https_proxy"
-  alias setproxy="bash ~/Dropbox/bash/set-mac-proxy-settings.sh"
-  alias getproxy="bash ~/Dropbox/bash/get-mac-proxy-settings.sh"
-  alias sethttpproxy="bash ~/Dropbox/bash/set-mac-http-proxy-settings.sh"
-  alias unsetproxy="bash ~/Dropbox/bash/restore-mac-proxy-settings.sh"
-  alias setttyproxy="export http_proxy=\"http://127.0.0.1:8118\";export https_proxy=\"http://127.0.0.1:8118\""
-  alias getservices="bash ~/Dropbox/bash/get-mac-network-services.sh"
-  alias testproxy="curl -s www.google.com | grep -o Google | uniq "
-  ' >> ~/.profile
+  echo '
+# proxy-settings-from-max
+export http_proxy="http://127.0.0.1:8118"
+export https_proxy="http://127.0.0.1:8118"
+alias unsetttyproxy="unset http_proxy;unset https_proxy"
+alias setproxy="bash ~/Dropbox/bash/set-mac-proxy-settings.sh"
+alias getproxy="bash ~/Dropbox/bash/get-mac-proxy-settings.sh"
+alias sethttpproxy="bash ~/Dropbox/bash/set-mac-http-proxy-settings.sh"
+alias unsetproxy="bash ~/Dropbox/bash/restore-mac-proxy-settings.sh"
+alias setttyproxy="export http_proxy=\"http://127.0.0.1:8118\";export https_proxy=\"http://127.0.0.1:8118\""
+alias getservices="bash ~/Dropbox/bash/get-mac-network-services.sh"
+alias testproxy="curl -s www.google.com | grep -o Google | uniq "
+' >> ~/${PROFILE}
   return 0
 }
 
@@ -184,7 +198,6 @@ end(){
 }
 
 help(){
-  colorEcho ${RED} "下面是用法,请认真阅读"
   colorEcho ${BLUE} "命令行命令 setproxy 设置socks代理, 相当于图形界面全局代理"
   colorEcho ${BLUE} "命令行命令 unsetproxy 取消socks代理"
   colorEcho ${BLUE} "命令行命令 sethttpproxy 设置http代理, 相当于图形界面全局代理"
@@ -197,7 +210,8 @@ help(){
   colorEcho ${BLUE} "v2ray 是自动判断 IP 的, 国外的网站才走代理的, 国内不走代理, v2ray 原理上就是自动代理了"
   colorEcho ${YELLOW} "如果还是有判断不合理的时候怎么办"
   colorEcho ${BLUE} "这种情况多发生在浏览国内的网站时, 我一般会执行 unsetproxy 关掉代理, 等操作结束在 setproxy 打开代理 "
-
+  colorEcho ${YELLOW} "如果我忘记了这些命令怎么办"
+  colorEcho ${BLUE} "这些命令实际上是 shell 的命令别名, 可以在 $HOME/${PROFILE} 文件的最后面找到"
 }
 
 while :
@@ -217,6 +231,7 @@ checkPrivoxy
 if [[ $? -eq 2 ]];then 
   downloadPrivoxy
 fi
+checkShell
 checkProfile
 checkProfileConfig
 if [[ $? -eq 0 ]];then 
