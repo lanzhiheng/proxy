@@ -8,7 +8,6 @@
 
 CONFIG_DIR="Dropbox/bash"
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
 #######color code########
 RED="31m"      # Error message
 GREEN="32m"    # Success message
@@ -25,19 +24,20 @@ checkHomebrew(){
   colorEcho ${BLUE} "check Homebrew exist or not"
   brew -v &>/dev/null
   if [[ $? -eq 0 ]]; then 
-    colorEcho ${YELLOW} "HomeBrew existed"
-    return 0 
+  colorEcho ${YELLOW} "HomeBrew existed"
+  return 0 
   else
-    colorEcho ${YELLOW} "Homebrew donot existed"
-    return 2
+  colorEcho ${YELLOW} "Homebrew donot existed"
+  return 2
   fi
+  return 0 
 }
 
 downloadHomebrew(){
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   if [ $? != 0 ];then
-    colorEcho ${RED} "Failed to download! Please check your network or try again."
-    return 3
+  colorEcho ${RED} "Failed to download! Please check your network or try again."
+  return 3
   fi
   return 0
 }
@@ -46,11 +46,11 @@ checkV2ray(){
   colorEcho ${BLUE} "check v2ray exist or not"
   type v2ray &>/dev/null
   if [[ $? -eq 0 ]]; then 
-    colorEcho ${YELLOW} "v2ray existed"
-    return 0 
+  colorEcho ${YELLOW} "v2ray existed"
+  return 0 
   else
-    colorEcho ${YELLOW} "v2ray dont existed"
-    return 2
+  colorEcho ${YELLOW} "v2ray dont existed"
+  return 2
   fi
   return 0 
 }
@@ -58,7 +58,7 @@ checkV2ray(){
 downloadV2ray(){
   brew tap v2ray/v2ray && brew install v2ray-core
   if [[ $? -eq 0 ]];then
-    return 0
+  return 0
   fi
   return 0
 }
@@ -67,11 +67,11 @@ checkPrivoxy(){
   colorEcho ${BLUE} "check v2ray exist or not"
   tmp=$(brew list | grep privoxy)
   if [[ -n "$tmp" ]]; then 
-    colorEcho ${YELLOW} "privoxy existed"
-    return 0 
+  colorEcho ${YELLOW} "privoxy existed"
+  return 0 
   else
-    colorEcho ${YELLOW} "privoxy dont existed"
-    return 2
+  colorEcho ${YELLOW} "privoxy dont existed"
+  return 2
   fi
   return 0 
 }
@@ -79,8 +79,8 @@ checkPrivoxy(){
 downloadPrivoxy(){
   brew install privoxy 
   if [ $? != 0 ];then
-    colorEcho ${RED} "Failed to download! Please check your network or try again."
-    return 3
+  colorEcho ${RED} "Failed to download! Please check your network or try again."
+  return 3
   fi
   return 0
 }
@@ -88,11 +88,11 @@ downloadPrivoxy(){
 checkProfile(){
   colorEcho ${BLUE} "check profile settings existed or not"
   if [[ -f ~/.profile ]];then
-    colorEcho ${YELLOW} "profile file existed"
-    return 0
+  colorEcho ${YELLOW} "profile file existed"
+  return 0
   else
-    colorEcho ${YELLOW} "profile file dont exist, Creating"
-    touch ~/.profile
+  colorEcho ${YELLOW} "profile file dont exist, Creating"
+  touch ~/.profile
   fi
   return 0
 }
@@ -101,10 +101,10 @@ checkProfileConfig(){
   colorEcho ${BLUE} "check profile configuration"
   grep -q -F "proxy-settings-from-max" ~/.profile
   if [[ $? -eq 0 ]];then
-    colorEcho ${YELLOW} "Profile settings already existed"
-    return 1 
+  colorEcho ${YELLOW} "Profile settings already existed"
+  return 1 
   else
-    colorEcho ${YELLOW} "Profile settings dont existed"
+  colorEcho ${YELLOW} "Profile settings dont existed"
   fi
   return 0
 }
@@ -122,29 +122,29 @@ cpSetupScript(){
 checkConfigDir(){
   colorEcho ${BLUE} "check config dir existed or not "
   if [[ -d "$HOME/${CONFIG_DIR}" ]];then
-    colorEcho ${YELLOW} "config dir $HOME/${CONFIG_DIR} existed"
-    return 0
+  colorEcho ${YELLOW} "config dir $HOME/${CONFIG_DIR} existed"
+  return 0
   else
-    colorEcho ${YELLOW} "config dir ${CONFIG_DIR} dont exist, creating"
-    mkdir -p "$HOME/${CONFIG_DIR}"
+  colorEcho ${YELLOW} "config dir ${CONFIG_DIR} dont exist, creating"
+  mkdir -p "$HOME/${CONFIG_DIR}"
   fi
   return 0
 
 }
 
 setProfile(){
-  echo '# proxy-settings-from-max
-  export http_proxy="http://127.0.0.1:8118"
-  export https_proxy="http://127.0.0.1:8118"
-  alias unsetttyproxy="unset http_proxy;unset https_proxy"
-  alias setproxy="bash ~/Dropbox/bash/set-mac-proxy-settings.sh"
-  alias getproxy="bash ~/Dropbox/bash/get-mac-proxy-settings.sh"
-  alias sethttpproxy="bash ~/Dropbox/bash/set-mac-http-proxy-settings.sh"
-  alias unsetproxy="bash ~/Dropbox/bash/restore-mac-proxy-settings.sh"
-  alias setttyproxy="export http_proxy=\"http://127.0.0.1:8118\";export https_proxy=\"http://127.0.0.1:8118\""
-  alias getservices="bash ~/Dropbox/bash/get-mac-network-services.sh"
-  alias testproxy="curl -s www.google.com | grep -o Google | uniq "
-  ' >> ~/.profile
+  echo "# proxy-settings-from-max
+  export http_proxy=\"http://127.0.0.1:8118\"
+  export https_proxy=\"http://127.0.0.1:8118\"
+  alias unsetttyproxy=\"unset http_proxy;unset https_proxy\"
+  alias setproxy=\"bash ~/${CONFIG_DIR}/set-mac-proxy-settings.sh\"
+  alias getproxy=\"bash ~/${CONFIG_DIR}/get-mac-proxy-settings.sh\"
+  alias sethttpproxy=\"bash ~/${CONFIG_DIR}/set-mac-http-proxy-settings.sh\"
+  alias unsetproxy=\"bash ~/${CONFIG_DIR}/restore-mac-proxy-settings.sh\"
+  alias setttyproxy=\"export http_proxy='http://127.0.0.1:8118';export https_proxy='http://127.0.0.1:8118'\"
+  alias getservices=\"bash ~/${CONFIG_DIR}/get-mac-network-services.sh\"
+  alias testproxy=\"curl -s www.google.com | grep -o Google | uniq \"
+  " >> ~/.profile
   return 0
 }
 
@@ -168,8 +168,8 @@ checkSudo(){
   colorEcho ${BLUE} "check networksetup permission"
   sudo grep -q -F 'NOPASSWD:/usr/sbin/networksetup' /etc/sudoers
   if [[ $? -eq 0 ]];then
-    colorEcho ${YELLOW} "sudo settings already existed"
-    return 1 
+  colorEcho ${YELLOW} "sudo settings already existed"
+  return 1 
   fi
   return 0
 }
@@ -204,9 +204,9 @@ while :
 do
   checkHomebrew
   if [[ $? -eq 0 ]];then 
-    break
+  break
   else
-    downloadHomebrew
+  downloadHomebrew
   fi
 done 
 checkV2ray
