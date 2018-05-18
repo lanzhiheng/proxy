@@ -1,10 +1,11 @@
+#!/bin/bash
 # If not specify, default meaning of return value:
 # 0: Success
 # 1: System error
 # 2: Application error
 # 3: Network error
 
-CONFIG_DIR="Dropbox/bash"
+CONFIG_DIR="Dropbox"
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 PROFILE=""
 
@@ -124,42 +125,42 @@ checkProfileConfig(){
 }
 
 cpSetupScript(){
-  cp $DIR/set-mac-http-proxy-settings.sh "$HOME/${CONFIG_DIR}/"
-  cp $DIR/restore-mac-proxy-settings.sh "$HOME/${CONFIG_DIR}/"
-  cp $DIR/set-mac-proxy-bypass-domain.sh "$HOME/${CONFIG_DIR}/"
-  cp $DIR/set-mac-proxy-settings.sh "$HOME/${CONFIG_DIR}/"
-  cp $DIR/set-mac-proxy-bypass-domain.sh "$HOME/${CONFIG_DIR}/"
-  cp $DIR/get-mac-proxy-settings.sh "$HOME/${CONFIG_DIR}/"
+  cp $DIR/set-mac-http-proxy-settings.sh "$HOME/${CONFIG_DIR}/${shell}/"
+  cp $DIR/restore-mac-proxy-settings.sh "$HOME/${CONFIG_DIR}/${shell}/"
+  cp $DIR/set-mac-proxy-bypass-domain.sh "$HOME/${CONFIG_DIR}/${shell}/"
+  cp $DIR/set-mac-proxy-settings.sh "$HOME/${CONFIG_DIR}/${shell}/"
+  cp $DIR/set-mac-proxy-bypass-domain.sh "$HOME/${CONFIG_DIR}/${shell}/"
+  cp $DIR/get-mac-proxy-settings.sh "$HOME/${CONFIG_DIR}/${shell}/"
   return 0
 }
 
 checkConfigDir(){
   colorEcho ${BLUE} "check config dir existed or not "
-  if [[ -d "$HOME/${CONFIG_DIR}" ]];then
-  colorEcho ${YELLOW} "config dir $HOME/${CONFIG_DIR} existed"
+  if [[ -d "$HOME/${CONFIG_DIR}/${shell}" ]];then
+  colorEcho ${YELLOW} "config dir $HOME/${CONFIG_DIR}/${shell} existed"
   return 0
   else
-  colorEcho ${YELLOW} "config dir ${CONFIG_DIR} dont exist, creating"
-  mkdir -p "$HOME/${CONFIG_DIR}"
+  colorEcho ${YELLOW} "config dir ${CONFIG_DIR}/${shell} dont exist, creating"
+  mkdir -p "$HOME/${CONFIG_DIR}/${shell}"
   fi
   return 0
 
 }
 
 setProfile(){
-  echo '
+  echo "
 # proxy-settings-from-max
-export http_proxy="http://127.0.0.1:8118"
-export https_proxy="http://127.0.0.1:8118"
-alias unsetttyproxy="unset http_proxy;unset https_proxy"
-alias setproxy="bash ~/Dropbox/bash/set-mac-proxy-settings.sh"
-alias getproxy="bash ~/Dropbox/bash/get-mac-proxy-settings.sh"
-alias sethttpproxy="bash ~/Dropbox/bash/set-mac-http-proxy-settings.sh"
-alias unsetproxy="bash ~/Dropbox/bash/restore-mac-proxy-settings.sh"
-alias setttyproxy="export http_proxy=\"http://127.0.0.1:8118\";export https_proxy=\"http://127.0.0.1:8118\""
-alias getservices="bash ~/Dropbox/bash/get-mac-network-services.sh"
-alias testproxy="curl -s www.google.com | grep -o Google | uniq "
-' >> ~/${PROFILE}
+export http_proxy=\"http://127.0.0.1:8118\"
+export https_proxy=\"http://127.0.0.1:8118\"
+alias unsetttyproxy=\"unset http_proxy;unset https_proxy\"
+alias setproxy=\"${shell} ~/${CONFIG_DIR}/${shell}/set-mac-proxy-settings.sh\"
+alias getproxy=\"${shell} ~/${CONFIG_DIR}/${shell}/get-mac-proxy-settings.sh\"
+alias sethttpproxy=\"${shell} ~/${CONFIG_DIR}/${shell}/set-mac-http-proxy-settings.sh\"
+alias unsetproxy=\"${shell} ~/${CONFIG_DIR}/${shell}/restore-mac-proxy-settings.sh\"
+alias setttyproxy=\"export http_proxy='http://127.0.0.1:8118';export https_proxy='http://127.0.0.1:8118'\"
+alias getservices=\"${shell} ~/${CONFIG_DIR}/${shell}/get-mac-network-services.sh\"
+alias testproxy=\"curl -s www.google.com | grep -o Google | uniq \"
+" >> ~/${PROFILE}
   return 0
 }
 
@@ -194,6 +195,7 @@ setSudo(){
   echo "$(whoami)             ALL = (ALL) NOPASSWD:/usr/sbin/networksetup" | sudo tee -a /etc/sudoers 
   return 0
 }
+
 end(){
   colorEcho ${RED} "打开新的窗口, 然后在里面试试下面的命令"
 }
