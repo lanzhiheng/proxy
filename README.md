@@ -12,7 +12,7 @@
 
 2. 导入二维码
 
-   ![qrcode](/Users/max/Desktop/proxy/qrcode.png)
+   ![qrcode](https://git.beansmile-dev.com/max/proxy/uploads/749251651f2066d0943ab5a7a914476e/Screenshot_2018-05-18_10.02.00.png)
 
 ## 推荐方案
 
@@ -22,7 +22,7 @@
 
 #### 安装过程:
 
-1. 克隆仓库
+1. 克隆仓库 `git clone git@git.beansmile-dev.com:max/proxy.git`
 2. 进入仓库 ` cd proxy/client`
 3. `bash start.sh`
 4. 查看更多说明请查看 client 文件夹下的 README
