@@ -23,8 +23,7 @@
 #### 安装过程:
 
 1. 克隆仓库 `git clone git@git.beansmile-dev.com:max/proxy.git`
-2. 进入仓库 ` cd proxy/client`
-3. `bash start.sh`
-5. 打开一个新的窗口. 执行 `setproxy`
-6. 打开浏览器, 访问 Google 测试一下吧
-4. 查看更多说明请查看 client 文件夹下的 README
+2. 执行安装脚本 `bash proxy/client/start.sh`
+3. 打开一个新的窗口. 执行 `setproxy` 开启代理(`unsetproxy` 就是关闭代理)
+4. 打开浏览器, 访问 Google 测试一下
+5. 更多说明请查看 client 文件夹下的 README.md
