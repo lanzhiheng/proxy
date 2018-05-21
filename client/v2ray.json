@@ -75,6 +75,21 @@
       "domainStrategy" : "IPIfNonMatch",
       "rules" : [
         {
+          "domain": [
+            "tanx.com"
+          ],
+          "type": "field",
+          "outboundTag": "block"
+        },
+        {
+          "domain": [
+            "gxind-expo.net",
+            "fightball.vip"
+          ],
+          "type": "field",
+          "outboundTag": "direct"
+        },
+        {
           "port" : "1-52",
           "type" : "field",
           "outboundTag" : "direct"
@@ -84,13 +99,6 @@
           "port": 53,
           "network": "udp", 
           "outboundTag": "direct"
-        },
-        {
-          "domain": [
-            "tanx.com"
-          ],
-          "type": "field",
-          "outboundTag": "block"
         },
         {
           "port" : "54-79",
