@@ -25,11 +25,12 @@
 5. 检查后面的操作是否用户已经做过，做过则跳过`checkProfile`，没做过则添加定制好的 alias 命令到检测得到的 shell（不同 shell 配置文件路径不同） 的配置文件中，实现定制的命令。
    `checkProfileConfig`
 6. 将 mac 上控制代理开关的命令封装成 bash 脚本文件。我们检查存放这些脚本的目录是否存在，不存在我们就创建这个目录 `checkConfigDir`
-7. 将控制代理开关的脚本拷贝到指定目录中 `cpSetupScript`
-8. 将本地的 `v2ray` 配置文件拷贝到指定的目录下，并重启 `v2ray` 确保生效 `setupV2ray`
-9. 将本地的 `privoxy` 配置文件拷贝到指定的目录下，并重启 `privoxy` 确保生效 `setupPrivoxy`
-10. 因为我们设置本地的代理开关需要高级权限，所以我们允许代理开关设置免验证 `checkSudo` `setSudo`
-11. 输出帮助文档
+7. v2ray 需要本地提供相应的日志文件夹用于记录访问和错误相关的日志 `checkLogDir`
+8. 将控制代理开关的脚本拷贝到指定目录中 `cpSetupScript`
+9. 将本地的 `v2ray` 配置文件拷贝到指定的目录下，并重启 `v2ray` 确保生效 `setupV2ray`
+10. 将本地的 `privoxy` 配置文件拷贝到指定的目录下，并重启 `privoxy` 确保生效 `setupPrivoxy`
+11. 因为我们设置本地的代理开关需要高级权限，所以我们允许代理开关设置免验证 `checkSudo` `setSudo`
+12. 输出帮助文档
 
 文件说明
 

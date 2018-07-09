@@ -49,10 +49,10 @@
         "mtu" : 1350,
         "congestion" : false,
         "tti" : 20,
-        "uplinkCapacity" : 2,
         "writeBufferSize" : 1,
         "readBufferSize" : 1,
-        "downlinkCapacity" : 2 
+        "uplinkCapacity" : 3,
+        "downlinkCapacity" : 3 
       }
     }
   },

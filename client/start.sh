@@ -8,6 +8,7 @@
 CONFIG_DIR="Dropbox"
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 PROFILE=""
+LOG_DIR="/usr/local/var/log/v2ray"
 
 #######color code########
 RED="31m"      # Error message
@@ -125,6 +126,7 @@ checkProfileConfig(){
 }
 
 cpSetupScript(){
+  colorEcho ${RED} "update mac networksetup script in $HOME/${CONFIG_DIR}/${shell}"
   cp $DIR/set-mac-http-proxy-settings.sh "$HOME/${CONFIG_DIR}/${shell}/"
   cp $DIR/restore-mac-proxy-settings.sh "$HOME/${CONFIG_DIR}/${shell}/"
   cp $DIR/set-mac-proxy-settings.sh "$HOME/${CONFIG_DIR}/${shell}/"
@@ -134,12 +136,12 @@ cpSetupScript(){
 }
 
 checkConfigDir(){
-  colorEcho ${BLUE} "check config dir existed or not "
+  colorEcho ${BLUE} "check config directory existed or not "
   if [[ -d "$HOME/${CONFIG_DIR}/${shell}" ]];then
   colorEcho ${YELLOW} "config dir $HOME/${CONFIG_DIR}/${shell} existed"
   return 0
   else
-  colorEcho ${YELLOW} "config dir ${CONFIG_DIR}/${shell} dont exist, creating"
+  colorEcho ${RED} "config dir ${CONFIG_DIR}/${shell} dont exist, creating"
   mkdir -p "$HOME/${CONFIG_DIR}/${shell}"
   fi
   return 0
@@ -163,7 +165,20 @@ alias testproxy=\"curl -s www.google.com | grep -o Google | uniq \"
   return 0
 }
 
+checkLogDir(){
+  colorEcho ${BLUE} "check log directory existed or not"
+  if [[ -d "${LOG_DIR}" ]];then
+      colorEcho ${YELLOW} "log directory existed"
+      return 0
+  else
+      colorEcho ${RED} "log directory dont existed, creating"
+      mkdir -p ${LOG_DIR}
+      return 1
+  fi
+}
+
 setupV2ray(){
+  colorEcho ${RED} "update your v2ray configuration in /usr/local/etc/v2ray "
   cp $DIR/v2ray.json /usr/local/etc/v2ray/config.json
   colorEcho ${BLUE} "restarting v2ray-core"
   brew services restart v2ray-core &>/dev/null
@@ -172,6 +187,7 @@ setupV2ray(){
 }
 
 setupPrivoxy(){
+  colorEcho ${RED} "update your privoxy configuration in /usr/local/etc/privoxy"
   cp $DIR/privoxy.conf /usr/local/etc/privoxy/config
   colorEcho ${BLUE} "restarting privoxy"
   brew services restart privoxy &>/dev/null
@@ -181,6 +197,7 @@ setupPrivoxy(){
 
 checkSudo(){
   colorEcho ${BLUE} "check networksetup permission"
+  colorEcho ${BLUE} "type your account password for managing your mac network in terminal"
   sudo grep -q -F 'NOPASSWD:/usr/sbin/networksetup' /etc/sudoers
   if [[ $? -eq 0 ]];then
   colorEcho ${YELLOW} "sudo settings already existed"
@@ -240,6 +257,7 @@ if [[ $? -eq 0 ]];then
   setProfile
 fi
 checkConfigDir
+checkLogDir
 cpSetupScript
 setupV2ray
 setupPrivoxy
