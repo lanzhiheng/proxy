@@ -8,6 +8,7 @@
 CONFIG_DIR="Dropbox"
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 PROFILE=""
+LOG_DIR="/usr/local/var/log/v2ray"
 
 #######color code########
 RED="31m"      # Error message
@@ -134,7 +135,7 @@ cpSetupScript(){
 }
 
 checkConfigDir(){
-  colorEcho ${BLUE} "check config dir existed or not "
+  colorEcho ${BLUE} "check config directory existed or not "
   if [[ -d "$HOME/${CONFIG_DIR}/${shell}" ]];then
   colorEcho ${YELLOW} "config dir $HOME/${CONFIG_DIR}/${shell} existed"
   return 0
@@ -161,6 +162,18 @@ alias getservices=\"${shell} ~/${CONFIG_DIR}/${shell}/get-mac-network-services.s
 alias testproxy=\"curl -s www.google.com | grep -o Google | uniq \"
 " >> ~/${PROFILE}
   return 0
+}
+
+checkLogDir(){
+  colorEcho ${BLUE} "check log directory existed or not"
+  if [[ -d "${LOG_DIR}" ]];then
+      colorEcho ${YELLOW} "log directory existed"
+      return 0
+  else
+      colorEcho ${BLUE} "log directory dont existed"
+      mkdir -p ${LOG_DIR}
+      return 1
+  fi
 }
 
 setupV2ray(){
@@ -240,6 +253,7 @@ if [[ $? -eq 0 ]];then
   setProfile
 fi
 checkConfigDir
+checkLogDir
 cpSetupScript
 setupV2ray
 setupPrivoxy
