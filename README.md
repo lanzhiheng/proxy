@@ -12,7 +12,7 @@
 - 安装成功后，运行 `spechtlite`, 点击状态栏 `spechtlite -> open profile folder(⌘C)`
 - 将当前仓库`client/spechtlite/shadowsocks.yaml`文件保存到刚才打开的文件夹下
 - 再次点击状态栏 `spechtlite`, 点击 `reload profile (⌘R)` 
-- 再次点击状态栏 `spechtlite`, 勾选你的配置文件
+- 再次点击状态栏 `spechtlite`, 勾选你的`shadowsocks`配置文件
 - 再次点击状态栏,勾选 `set as system proxy` 和 `autostart at login`
 - 配置完毕
 - demo
