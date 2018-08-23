@@ -19,16 +19,6 @@
 
 ![spechtlite.gif](client/docs/spechtlite.gif)
 
-美国
-
-![us-qrcode](https://git.beansmile-dev.com/max/proxy/uploads/f1d4f4ccfc9a463ce6e25599fd80bc24/us-qrcode.png)
-
-日本
-
-![jp-qrcode](https://git.beansmile-dev.com/max/proxy/uploads/61270f02693072c0940f529d6a4c5181/jp-qrcode.png)
-
-
-
 - [**可选**] 如果你的客户端不支持扫码添加配置，请手动输入配置，两台代理服务器配置一样
 
 
@@ -53,7 +43,6 @@ Port: `3389`
 Encryption：`aes-256-cfb`
 
 Key： `iChLy8PsUm2v$44r.7$2WpG)Zoii)gbs#PD$DMAPVRc4z;ZXsnUXCC+n29#Lq9Qz`
-
 
 
 ## 推荐方案
