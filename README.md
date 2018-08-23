@@ -2,19 +2,23 @@
 
 ## 基础方案
 
-优点: 图形界面操作, 操作简单
+优点: 图形界面操作, 操作简单, 稳定
 
-缺点: 缺乏命令行代理支持, 效率低, 不支持自动判断, 速度慢, 不支持加速服务
+缺点: 没有加速协议支持, 在家庭环境速度一般. 
 
 #### 安装过程:
 
-- 安装 shadowsocksx-ng ，可以使用`brew cask install shadowsocksx-ng`命令一键安装。或者点击[链接安装](https://github.com/shadowsocks/ShadowsocksX-NG)。
-- 安装成功后，导入二维码。下面的二维码第一个是美国的代理服务器，第二个日本的代理服务，二选一即可。
+- 安装 `spechtlite` ，可以使用`brew cask install spechtlite`命令一键安装。或者点击[链接安装](https://github.com/zhuhaow/SpechtLite/releases)。
+- 安装成功后，运行 `spechtlite`, 点击状态栏 `spechtlite -> open profile folder(⌘C)`, 然后将当前仓库`client/spechtlite/shadowsocks.yaml`文件保存到刚才打开的文件夹下, 再次点击状态栏 `spechtlite`, 点击 `reload profile (⌘R)` , 再次点击状态栏 `spechtlite`, 勾选你的配置文件. 勾选 `set as system proxy` 和 `autostart at login`, 配置完毕.
+
+![spechtlite.gif](client/docs/spechtlite.gif)
 
 美国
+
 ![us-qrcode](https://git.beansmile-dev.com/max/proxy/uploads/f1d4f4ccfc9a463ce6e25599fd80bc24/us-qrcode.png)
 
 日本
+
 ![jp-qrcode](https://git.beansmile-dev.com/max/proxy/uploads/61270f02693072c0940f529d6a4c5181/jp-qrcode.png)
 
 
