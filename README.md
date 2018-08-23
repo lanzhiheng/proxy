@@ -55,7 +55,7 @@ Key： `iChLy8PsUm2v$44r.7$2WpG)Zoii)gbs#PD$DMAPVRc4z;ZXsnUXCC+n29#Lq9Qz`
 #### 安装过程:
 
 1. 克隆仓库 `git clone git@git.beansmile-dev.com:max/proxy.git`
-2. 执行安装脚本 `bash proxy/client/start.sh`
+2. 执行安装脚本 `cd proxy/client/v2ray && bash start.sh`
 3. 打开一个新的窗口. 执行 `setproxy` 开启代理(`unsetproxy` 就是关闭代理)
 4. 打开浏览器, 访问 Google 测试一下，如果可以访问，说明图形界面可以翻墙了。
 5. 命令行端也支持代理，在一个新的命令行窗口里，当你执行完这份脚本后，每个新打开的命令行窗口都是默认走代理的。执行 `testproxy` , 如果输出 Google 说明命令行可以翻墙了。如果你想要当前命令行窗口不走代理（只对当前命令行窗口有效），执行 `unsetttyproxy`，`setttyproxy`命令可以再次让当前窗口恢复到代理模式。
