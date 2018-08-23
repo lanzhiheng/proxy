@@ -8,17 +8,18 @@
 
 #### 安装过程:
 
-- 安装 `spechtlite` ，可以使用`brew cask install spechtlite`命令一键安装。或者点击[链接安装](https://github.com/zhuhaow/SpechtLite/releases)。
-- 安装成功后，运行 `spechtlite`, 点击状态栏 `spechtlite -> open profile folder(⌘C)`, 
-- 将当前仓库`client/spechtlite/shadowsocks.yaml`文件保存到刚才打开的文件夹下,
+- 安装 `spechtlite` ，可以使用`brew cask install spechtlite`命令一键安装。或者点击[链接安装](https://github.com/zhuhaow/SpechtLite/releases)
+- 安装成功后，运行 `spechtlite`, 点击状态栏 `spechtlite -> open profile folder(⌘C)`
+- 将当前仓库`client/spechtlite/shadowsocks.yaml`文件保存到刚才打开的文件夹下
 - 再次点击状态栏 `spechtlite`, 点击 `reload profile (⌘R)` 
-- 再次点击状态栏 `spechtlite`, 勾选你的配置文件. 
+- 再次点击状态栏 `spechtlite`, 勾选你的配置文件
 - 再次点击状态栏,勾选 `set as system proxy` 和 `autostart at login`
-- 配置完毕.
+- 配置完毕
 - demo
 
 ![spechtlite.gif](client/docs/spechtlite.gif)
 
+- [**注意**]请卸载本地旧代理程序, 比如`shadowsocks-ng`, 避免冲突
 - [**可选**] 如果你的客户端不支持扫码添加配置，请手动输入配置，两台代理服务器配置一样
 
 
