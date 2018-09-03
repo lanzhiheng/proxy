@@ -15,7 +15,8 @@
 - 再次点击状态栏 `spechtlite`, 点击 `reload profile (⌘R)`
 - 再次点击状态栏 `spechtlite`, 勾选你的`shadowsocks`配置文件
 - 再次点击状态栏,勾选 `set as system proxy` 和 `autostart at login`
-- 配置完毕
+- 配置完毕, 请访问 `google.com` 进行测试
+- 电脑上有 `shadowsocksX` 请停用或卸载, 避免同时运行的情况出现.
 - 如果有不理解的, 可以看下面的 demo
 
 ![spechtlite.gif](client/docs/spechtlite.gif)
