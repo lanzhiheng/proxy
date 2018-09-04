@@ -1,0 +1,131 @@
+{
+  "log": {
+    "access": "/tmp/access.log",
+    "error": "/tmp/error.log",
+    "loglevel": "error"
+  },
+  "inbounds": [
+    {
+      "port": 9090,
+      "listen": "127.0.0.1",
+      "protocol": "http",
+      "settings": {
+        "timeout": 0,
+        "allowTransparent": false,
+        "userLevel": 0
+      },
+      "streamSettings": {},
+      "tag": "in-http",
+      "sniffing": {
+        "enabled": false,
+        "destOverride": [
+          "http",
+          "tls"
+        ]
+      },
+      "allocate": {
+        "strategy": "always",
+        "refresh": 5,
+        "concurrency": 3
+      }
+    },
+    {
+      "port": 9091,
+      "listen": "127.0.0.1",
+      "protocol": "socks",
+      "settings": {
+        "auth": "noauth",
+        "udp": false,
+        "ip": "127.0.0.1",
+        "userLevel": 0
+      },
+      "streamSettings": {},
+      "tag": "in-socks",
+      "sniffing": {
+        "enabled": false,
+        "destOverride": [
+          "http",
+          "tls"
+        ]
+      },
+      "allocate": {
+        "strategy": "always",
+        "refresh": 5,
+        "concurrency": 3
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "sendThrough": "0.0.0.0",
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "proxy-backup.beansmile-dev.com",
+            "port": 5389,
+            "users": [
+              {
+                "id": "80124b22-bc36-46fe-a2ec-6500846f2251",
+                "alterId": 16,
+                "security": "auto",
+                "level": 0
+              }
+            ]
+          },
+          {
+            "address": "proxy-master.beansmile-dev.com",
+            "port": 5389,
+            "users": [
+              {
+                "id": "80124b22-bc36-46fe-a2ec-6500846f2251",
+                "alterId": 16,
+                "security": "auto",
+                "level": 0
+              }
+            ]
+          }
+        ]
+      },
+      "tag": "out-vmess",
+      "streamSettings": {
+        "network": "tcp",
+        "security": "tls"
+      },
+      "mux": {}
+    },
+    {
+      "sendThrough": "0.0.0.0",
+      "protocol": "freedom",
+      "settings": {
+        "domainStrategy": "AsIs",
+        "redirect": ":0",
+        "userLevel": 0
+      },
+      "tag": "direct",
+      "streamSettings": {},
+      "mux": {}
+    }
+  ],
+  "routing": {
+    "domainStrategy": "IPIfNonMatch",
+    "rules": [
+      {
+        "type": "field",
+        "domain": [
+          "geosite:cn",
+          "geosite:speedtest"
+        ],
+        "outboundTag": "direct"
+      },
+      {
+        "type": "field",
+        "ip": [
+          "geoip:cn",
+          "geoip:private"
+        ],
+        "outboundTag": "direct"
+      }
+    ]
+  }
+}
