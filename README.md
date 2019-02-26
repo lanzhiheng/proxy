@@ -72,13 +72,13 @@
     
 # iOS proxy config
 
-1. **login Beansmile Apple ID**
+1. **Login Beansmile Apple ID**
     
     username: `devops-team@beansmile.com`
     
     password: `Bean.smile#2018`
 
-2. **download Shadowrocket**
+2. **Download Shadowrocket**
 3. **Scan QR code with Shadowrocket**
     
   - **proxy master QR code**
@@ -89,3 +89,20 @@
   
   - **proxy ladder QR code**
   ![proxy-ladder](https://git.beansmile-dev.com/beansmileteam/proxy/uploads/515150e6580e78ea937036ee9e447d3c/seeJcoXZQs6NnM6kh5CQ4A_thumb_2d8.jpg)
+  
+# Android proxy config
+
+1. **Download V2rayNG**
+
+    [click here to download page](https://github.com/2dust/v2rayNG/releases)
+    
+2. **Scan QR code with V2rayNG**
+   
+  - **Android proxy backup QR code**
+  ![proxy-backup](https://git.beansmile-dev.com/beansmileteam/proxy/uploads/ee7fe138f69da88f1de6122020e5c0f9/proxy-backup.png)
+   
+  - **Android proxy master QR code**
+  ![proxy-master](https://git.beansmile-dev.com/beansmileteam/proxy/uploads/34e9521314652058877b927e705c4216/proxy-master.png)
+   
+  - **Android proxy ladder QR code**
+  ![proxy-ladder](https://git.beansmile-dev.com/beansmileteam/proxy/uploads/d05dee6840bded25bda91e111be76282/proxy-ladder.png)
