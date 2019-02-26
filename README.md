@@ -94,7 +94,7 @@
 
 1. **Download V2rayNG**
 
-    [click here to download page](https://github.com/2dust/v2rayNG/releases)
+    [click here to download](https://github.com/2dust/v2rayNG/releases)
     
 2. **Scan QR code with V2rayNG**
    
