@@ -107,7 +107,7 @@
    
   - **Android proxy master QR code**
   
-  ![proxy-master](https://git.beansmile-dev.com/beansmileteam/proxy/uploads/34e9521314652058877b927e705c4216/proxy-master.png)
+  ![proxy-master](https://git.beansmile-dev.com/beansmileteam/proxy/uploads/767e785e53b52c0d42164ddda55e42ea/proxy-master.png)
    
   - **Android proxy ladder QR code**
   
