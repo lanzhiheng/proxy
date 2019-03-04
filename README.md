@@ -40,7 +40,7 @@
     ```
     proxy start
     ```
-    You can visit google now ( ^ω^ ) Open Safari and try it yourself. 
+    You can visit google now ^_^  Open Safari and try it yourself. 
     
 6. **[option] Figure out more usage**
     ```
