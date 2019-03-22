@@ -113,3 +113,34 @@
   - **Android proxy ladder QR code**
   
   ![proxy-ladder](https://git.beansmile-dev.com/beansmileteam/proxy/uploads/d05dee6840bded25bda91e111be76282/proxy-ladder.png)
+
+# Windows proxy config
+
+1. Download v2rayN-Core.zip: https://github.com/2dust/v2rayN/releases
+
+2. Copy your windows config into your clipboard 
+  
+    - **proxy master**
+    ```bash
+    vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogInByb3h5LW1hc3RlciIsDQogICJhZGQiOiAicHJveHktbWFzdGVyLmJlYW5zbWlsZS1kZXYuY29tIiwNCiAgInBvcnQiOiAiNTM4OSIsDQogICJpZCI6ICI4MDEyNGIyMi1iYzM2LTQ2ZmUtYTJlYy02NTAwODQ2ZjIyNTEiLA0KICAiYWlkIjogIjE2IiwNCiAgIm5ldCI6ICJ0Y3AiLA0KICAidHlwZSI6ICJub25lIiwNCiAgImhvc3QiOiAiIiwNCiAgInBhdGgiOiAiIiwNCiAgInRscyI6ICJ0bHMiDQp9
+    ```
+    
+    - **proxy backup**
+    ```bash
+    vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogInByb3h5LWJhY2t1cCIsDQogICJhZGQiOiAicHJveHktYmFja3VwLmJlYW5zbWlsZS1kZXYuY29tIiwNCiAgInBvcnQiOiAiNTM4OSIsDQogICJpZCI6ICI4MDEyNGIyMi1iYzM2LTQ2ZmUtYTJlYy02NTAwODQ2ZjIyNTEiLA0KICAiYWlkIjogIjE2IiwNCiAgIm5ldCI6ICJ0Y3AiLA0KICAidHlwZSI6ICJub25lIiwNCiAgImhvc3QiOiAiIiwNCiAgInBhdGgiOiAiIiwNCiAgInRscyI6ICJ0bHMiDQp9
+    ```
+3. Import config
+
+    ![import.png](https://git.beansmile-dev.com/beansmileteam/proxy/uploads/ee196daa7461969be076761108568551/image.png)
+
+4. Enable proxy
+    ![enable1.png](https://git.beansmile-dev.com/beansmileteam/proxy/uploads/fb393c790da61d83313d00d03a8e7329/image.png)
+
+5. Chose proxy mode
+    ![enable.png](https://git.beansmile-dev.com/beansmileteam/proxy/uploads/b37401c8608b46b0ccf53756734f5cbb/image.png)
+
+6. Chose your proxy server that you wanna use
+    ![use.png](https://git.beansmile-dev.com/beansmileteam/proxy/uploads/267318fed3a3faf4ad0083d25459b228/image.png)
+
+7. Enable auto start
+    ![autoStart.png](https://git.beansmile-dev.com/beansmileteam/proxy/uploads/65fcdbdbdb716b8baa495e878f8526c8/image.png)
