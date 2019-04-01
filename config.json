@@ -115,7 +115,7 @@
         "domain": [
           "geosite:cn",
           "geosite:speedtest",
-          "appleid.apple.com"
+          "apple.com"
         ],
         "outboundTag": "direct"
       },
