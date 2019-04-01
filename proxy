@@ -95,13 +95,6 @@ testProxy
 brew services list | grep v2ray-core
 ;;
 
-reload)
-echo reloading...
-cp /usr/local/etc/v2ray/config.json /usr/local/etc/v2ray/config.json.bak
-cat ~/.proxy/config.json > /usr/local/etc/v2ray/config.json
-brew services restart v2ray-core
-;;
-
 upgrade)
 echo upgrading...
 cd ~/.proxy && git stash push && git pull origin master && git stash pop
@@ -119,7 +112,6 @@ start     Start your proxy and setup global proxy environment.
 stop      Stop your proxy and restore global proxy environment.
 restart   Restart proxy server (v2ray-core) .
 status    Show proxy status.
-reload    Reload config with your custom change.
 upgrade   Upgrade proxy config and current repository, and then restart proxy.
 '''
 ;;
