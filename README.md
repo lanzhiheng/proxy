@@ -13,7 +13,7 @@
 
 ## Attention
 
-**Don not change your date manually, which will cause your proxy down** 
+**Do not change your date manually, which will cause your proxy down** 
 **不要手动修改你的系统时间. 否则你可能会由于时间戳错误导致代理失效**
 
 ## Mac proxy config
