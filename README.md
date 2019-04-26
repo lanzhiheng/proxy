@@ -1,4 +1,24 @@
-# Usage
+## table of contents
+<!-- vim-markdown-toc GitLab -->
+
+* [Attention](#attention)
+* [Mac proxy config](#mac-proxy-config)
+  * [setup](#setup)
+  * [advanced](#advanced)
+* [iOS proxy config](#ios-proxy-config)
+* [Android proxy config](#android-proxy-config)
+* [Windows proxy config](#windows-proxy-config)
+
+<!-- vim-markdown-toc -->
+
+## Attention
+
+**Don not change your date manually, which will cause your proxy down** 
+**不要手动修改你的系统时间. 否则你可能会由于时间戳错误导致代理失效**
+
+## Mac proxy config
+
+### setup
 1. **Install** 
     ```
     git clone git@git.beansmile-dev.com:beansmileteam/proxy.git ~/.proxy
@@ -16,11 +36,13 @@
     echo 'export PATH="$PATH:$HOME/.proxy"' >> ~/.zshrc
     ```
     
-    Setup property permission
+3. **Setup property permission**
+
     ```
     sudo sh -c 'echo "%admin ALL = (ALL) NOPASSWD:/usr/sbin/networksetup" >> /etc/sudoers' 
     ```
-3. **import shell config**
+
+4. **import shell config**
     
     If you use bash shell
     ```
@@ -31,23 +53,26 @@
     ```
     source ~/.zshrc
     ```
-4. **Download dependency**
+
+5. **Download dependency**
     ```
     proxy init
     ```
 
-5. **Start your proxy**
+6. **Start your proxy**
     ```
     proxy start
     ```
     You can visit google now. Open Safari and try it yourself. 
-    
-6. **[option] Figure out more usage**
+
+### advanced
+
+1. **[option] Figure out more usage**
     ```
     proxy help
     ```
 
-7. **[option] Setup terminal proxy**
+2. **[option] Setup terminal proxy**
     
     If you use bash shell
     ```
@@ -58,12 +83,12 @@
     echo -e "export http_proxy='http://127.0.0.1:9090'\nexport https_proxy='http://127.0.0.1:9090'" >> ~/.zshrc && source ~/.zshrc
     ```
     
-8. **[option] Temporarily unset terminal proxy**
+3. **[option] Temporarily unset terminal proxy**
     ```
     unset http_proxy && unset https_proxy
     ```
 
-9. **[option] Persistently unset terminal proxy**
+4. **[option] Persistently unset terminal proxy**
     
     delete the follow lines in your `.bash_profile` or `.zshrc`
     ```
@@ -71,7 +96,7 @@
     export https_proxy='http://127.0.0.1:9090'
     ```
     
-# iOS proxy config
+## iOS proxy config
 
 1. **Login Beansmile Apple ID**
     
@@ -94,7 +119,7 @@
   
   ![proxy-ladder](https://git.beansmile-dev.com/beansmileteam/proxy/uploads/515150e6580e78ea937036ee9e447d3c/seeJcoXZQs6NnM6kh5CQ4A_thumb_2d8.jpg)
   
-# Android proxy config
+## Android proxy config
 
 1. **Download V2rayNG [Universal Release]**
 
@@ -114,7 +139,7 @@
   
   ![proxy-ladder](https://git.beansmile-dev.com/beansmileteam/proxy/uploads/d05dee6840bded25bda91e111be76282/proxy-ladder.png)
 
-# Windows proxy config
+## Windows proxy config
 
 1. Download v2rayN-Core.zip: https://github.com/2dust/v2rayN/releases
 
