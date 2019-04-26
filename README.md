@@ -66,14 +66,8 @@
     You can visit google now. Open Safari and try it yourself. 
 
 ### advanced
+1. **[option] Setup terminal proxy**
 
-1. **[option] Figure out more usage**
-    ```
-    proxy help
-    ```
-
-2. **[option] Setup terminal proxy**
-    
     If you use bash shell
     ```
     echo -e "export http_proxy='http://127.0.0.1:9090'\nexport https_proxy='http://127.0.0.1:9090'" >> ~/.bash_profile && source ~/.bash_profile
@@ -82,20 +76,27 @@
     ```
     echo -e "export http_proxy='http://127.0.0.1:9090'\nexport https_proxy='http://127.0.0.1:9090'" >> ~/.zshrc && source ~/.zshrc
     ```
-    
-3. **[option] Temporarily unset terminal proxy**
+
+2. **[option] Temporarily unset terminal proxy**
+
     ```
     unset http_proxy && unset https_proxy
     ```
 
-4. **[option] Persistently unset terminal proxy**
-    
+3. **[option] Persistently unset terminal proxy**
+
     delete the follow lines in your `.bash_profile` or `.zshrc`
     ```
     export http_proxy='http://127.0.0.1:9090'
     export https_proxy='http://127.0.0.1:9090'
     ```
-    
+
+4. **[option] Figure out more usage**
+
+    ```
+    proxy help
+    ```
+
 ## iOS proxy config
 
 1. **Login Beansmile Apple ID**
