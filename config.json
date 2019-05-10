@@ -63,7 +63,7 @@
         "vnext": [
           {
             "address": "proxy-backup.beansmile-dev.com",
-            "port": 5389,
+            "port": 443,
             "users": [
               {
                 "id": "80124b22-bc36-46fe-a2ec-6500846f2251",
@@ -75,7 +75,7 @@
           },
           {
             "address": "proxy-master.beansmile-dev.com",
-            "port": 5389,
+            "port": 443,
             "users": [
               {
                 "id": "80124b22-bc36-46fe-a2ec-6500846f2251",
