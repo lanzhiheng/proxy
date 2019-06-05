@@ -62,23 +62,24 @@
       "settings": {
         "vnext": [
           {
-            "address": "hk.jinmiaoluo.cn",
-            "port": 80,
+            "address": "master.beansmile-dev.com",
+            "port": 443,
             "users": [
               {
                 "id": "80124b22-bc36-46fe-a2ec-6500846f2251",
-                "alterId": 16,
-                "security": "auto",
-                "level": 0
+                "alterId": 16
               }
             ]
           }
         ]
       },
-      "tag": "out-vmess",
+      "tag": "proxy",
       "streamSettings": {
-        "network": "tcp",
-        "security": "tls"
+        "network": "ws",
+        "security": "tls",
+        "wsSettings": {
+          "path": "/hi"
+        }
       },
       "mux": {}
     },
@@ -130,3 +131,4 @@
     ]
   }
 }
+
