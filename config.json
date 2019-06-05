@@ -81,10 +81,7 @@
           "path": "/hi"
         }
       },
-      "mux": {
-        "enabled": false,
-        "concurrency": 8
-      }
+      "mux": {}
     },
     {
       "sendThrough": "0.0.0.0",
