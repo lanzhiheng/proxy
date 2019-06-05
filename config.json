@@ -1,11 +1,13 @@
 {
   "log": {
+    "access": "/tmp/access.log",
+    "error": "/tmp/error.log",
     "loglevel": "error"
   },
   "inbounds": [
     {
       "port": 9090,
-      "listen": "0.0.0.0",
+      "listen": "127.0.0.1",
       "protocol": "http",
       "settings": {
         "timeout": 0,
@@ -29,7 +31,7 @@
     },
     {
       "port": 9091,
-      "listen": "0.0.0.0",
+      "listen": "127.0.0.1",
       "protocol": "socks",
       "settings": {
         "auth": "noauth",
