@@ -3,8 +3,8 @@
 
 * [Attention](#attention)
 * [Mac proxy config](#mac-proxy-config)
-	* [setup](#setup)
-	* [advanced](#advanced)
+  * [setup](#setup)
+  * [advanced](#advanced)
 * [iOS proxy config](#ios-proxy-config)
 * [Android proxy config](#android-proxy-config)
 * [Windows proxy config](#windows-proxy-config)
@@ -132,8 +132,8 @@
 2. Copy your windows config into your clipboard
 
     **config**
-    ```bash
-		vmess://eyJhZGQiOiJtYXN0ZXIuYmVhbnNtaWxlLWRldi5jb20iLCJhaWQiOiIxNiIsImhvc3QiOiIiLCJpZCI6IjgwMTI0YjIyLWJjMzYtNDZmZS1hMmVjLTY1MDA4NDZmMjI1MSIsIm5ldCI6IndzIiwicGF0aCI6Ii9oaSIsInBvcnQiOiI0NDMiLCJwcyI6Im1hc3RlciIsInRscyI6InRscyIsInR5cGUiOiJub25lIiwidiI6IjIifQ==
+    ```
+    vmess://eyJhZGQiOiJtYXN0ZXIuYmVhbnNtaWxlLWRldi5jb20iLCJhaWQiOiIxNiIsImhvc3QiOiIiLCJpZCI6IjgwMTI0YjIyLWJjMzYtNDZmZS1hMmVjLTY1MDA4NDZmMjI1MSIsIm5ldCI6IndzIiwicGF0aCI6Ii9oaSIsInBvcnQiOiI0NDMiLCJwcyI6Im1hc3RlciIsInRscyI6InRscyIsInR5cGUiOiJub25lIiwidiI6IjIifQ==
     ```
 
 3. Import config
