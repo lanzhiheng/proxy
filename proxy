@@ -100,7 +100,7 @@ echo upgrading...
 cd ~/.proxy && git stash push && git pull origin develop && git stash pop
 cp /usr/local/etc/v2ray/config.json /usr/local/etc/v2ray/config.json.bak
 cat ~/.proxy/config.json > /usr/local/etc/v2ray/config.json
-brew services restart v2ray-core
+proxy restart
 cd -
 ;;
 
