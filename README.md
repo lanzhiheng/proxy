@@ -3,8 +3,8 @@
 
 * [Attention](#attention)
 * [Mac proxy config](#mac-proxy-config)
-  * [setup](#setup)
-  * [advanced](#advanced)
+	* [setup](#setup)
+	* [advanced](#advanced)
 * [iOS proxy config](#ios-proxy-config)
 * [Android proxy config](#android-proxy-config)
 * [Windows proxy config](#windows-proxy-config)
@@ -109,17 +109,9 @@
 2. **Download Shadowrocket**
 3. **Scan QR code with Shadowrocket**
 
-  - **proxy master QR code**
+  - **iOS proxy QR code**
 
-  ![proxy-master](https://git.beansmile-dev.com/beansmileteam/proxy/uploads/043c3d81bdf18c75ec55cdf11798d705/ios-proxy-master.png)
-
-  - **proxy backup QR code**
-
-  ![proxy-backup](https://git.beansmile-dev.com/beansmileteam/proxy/uploads/e1343ad7cf78dbe907bcaa56d85cc948/ios-proxy-backup.png)
-
-  - **proxy ladder QR code**
-
-  ![proxy-ladder](https://git.beansmile-dev.com/beansmileteam/proxy/uploads/515150e6580e78ea937036ee9e447d3c/seeJcoXZQs6NnM6kh5CQ4A_thumb_2d8.jpg)
+  ![proxy-master](https://git.beansmile-dev.com/beansmileteam/proxy/uploads/3927aad3c2a3db283d816a535d6f5467/master_ios.png)
 
 ## Android proxy config
 
@@ -129,17 +121,9 @@
 
 2. **Scan QR code with V2rayNG**
 
-  - **Android proxy backup QR code**
+  - **Android proxy QR code**
 
-  ![proxy-backup](https://git.beansmile-dev.com/beansmileteam/proxy/uploads/1cfab2fa1384b5b9a9e7ab4a6f40cc7f/android-proxy-backup.png)
-
-  - **Android proxy master QR code**
-
-  ![proxy-master](https://git.beansmile-dev.com/beansmileteam/proxy/uploads/0d5944674d5373866fd23c6f826b846c/android-proxy-master.png)
-
-  - **Android proxy ladder QR code**
-
-  ![proxy-ladder](https://git.beansmile-dev.com/beansmileteam/proxy/uploads/d05dee6840bded25bda91e111be76282/proxy-ladder.png)
+  ![master](https://git.beansmile-dev.com/beansmileteam/proxy/uploads/dccfb013926945b81e0e11d35e2404c6/master_android.png)
 
 ## Windows proxy config
 
@@ -147,14 +131,9 @@
 
 2. Copy your windows config into your clipboard
 
-    **proxy master**
+    **config**
     ```bash
-    vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogInByb3h5LW1hc3RlciIsDQogICJhZGQiOiAicHJveHktbWFzdGVyLmJlYW5zbWlsZS1kZXYuY29tIiwNCiAgInBvcnQiOiAiNDQzIiwNCiAgImlkIjogIjgwMTI0YjIyLWJjMzYtNDZmZS1hMmVjLTY1MDA4NDZmMjI1MSIsDQogICJhaWQiOiAiMTYiLA0KICAibmV0IjogInRjcCIsDQogICJ0eXBlIjogIm5vbmUiLA0KICAiaG9zdCI6ICIiLA0KICAicGF0aCI6ICIiLA0KICAidGxzIjogInRscyINCn0=
-    ```
-
-    **proxy backup**
-    ```bash
-    vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogInByb3h5LWJhY2t1cCIsDQogICJhZGQiOiAicHJveHktYmFja3VwLmJlYW5zbWlsZS1kZXYuY29tIiwNCiAgInBvcnQiOiAiNDQzIiwNCiAgImlkIjogIjgwMTI0YjIyLWJjMzYtNDZmZS1hMmVjLTY1MDA4NDZmMjI1MSIsDQogICJhaWQiOiAiMTYiLA0KICAibmV0IjogInRjcCIsDQogICJ0eXBlIjogIm5vbmUiLA0KICAiaG9zdCI6ICIiLA0KICAicGF0aCI6ICIiLA0KICAidGxzIjogInRscyINCn0=
+		vmess://eyJhZGQiOiJtYXN0ZXIuYmVhbnNtaWxlLWRldi5jb20iLCJhaWQiOiIxNiIsImhvc3QiOiIiLCJpZCI6IjgwMTI0YjIyLWJjMzYtNDZmZS1hMmVjLTY1MDA4NDZmMjI1MSIsIm5ldCI6IndzIiwicGF0aCI6Ii9oaSIsInBvcnQiOiI0NDMiLCJwcyI6Im1hc3RlciIsInRscyI6InRscyIsInR5cGUiOiJub25lIiwidiI6IjIifQ==
     ```
 
 3. Import config
