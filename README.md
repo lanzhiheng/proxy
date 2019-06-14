@@ -8,6 +8,8 @@
 * [iOS proxy config](#ios-proxy-config)
 * [Android proxy config](#android-proxy-config)
 * [Windows proxy config](#windows-proxy-config)
+* [FAQ](#faq)
+  * [本地最大开启文件数限制](#本地最大开启文件数限制)
 
 <!-- vim-markdown-toc -->
 
@@ -155,3 +157,26 @@
 7. Enable auto start
 
     ![autoStart.png](https://git.beansmile-dev.com/beansmileteam/proxy/uploads/65fcdbdbdb716b8baa495e878f8526c8/image.png)
+
+## FAQ
+
+### 本地最大开启文件数限制
+> Mac 平台的代理在打开太多网络连接的时候会出现连接临时中断(直连的网站也会). 问题的日志(debug模式下)错误关键字是: `too many open files` web 站点会有如下关键字: `connection refused` `connection timeout` `connection error`. QQ 上传大文件会报错
+
+遇到这种问题的同事根据下面的链接:
+https://superuser.com/a/1171028/767644
+配置本机的 maxfiles limit 并 **重启Mac 重启Mac 重启Mac** 即可.
+
+我本地的 maxfiles 配置如下(你也可以用下面的命令查看你本地的 maxfile 配置):
+```
+$ launchctl limit maxfiles
+maxfiles    64000         524288
+#<项目>       <软限制>       <硬限制>
+```
+说明. 超过软限制会触发警告. 超过软限制一定时间后, 后面所有新连接将直接中断. 如果超过硬限制, 报错并立即中断所有新连接.
+
+查看本机已经使用的 File Descriptor 数量(命令比较慢, 等待5~10s)
+```
+$ lsof -n | wc -l
+  6247
+```
