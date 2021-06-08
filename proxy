@@ -50,12 +50,12 @@ initProxy(){
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     fi
 
-    #v2ray-core
+    #v2ray
     type v2ray &>/dev/null
     if [[ ! $? -eq 0 ]]; then
-      brew tap v2ray/v2ray && brew install v2ray-core
+      brew tap v2ray/v2ray && brew install v2ray
     else
-      brew uninstall v2ray-core && brew install v2ray-core
+      brew uninstall v2ray && brew install v2ray
     fi
 
     cp /usr/local/etc/v2ray/config.json /usr/local/etc/v2ray/config.json.bak
@@ -70,13 +70,13 @@ initProxy
 
 start)
 echo proxy starting and will autostart when reboot...
-brew services start v2ray-core
+brew services start v2ray
 setProxy
 ;;
 
 stop)
 echo proxy stopping and will not autostart when reboot...
-brew services stop v2ray-core
+brew services stop v2ray
 unsetProxy
 ;;
 
@@ -84,15 +84,13 @@ restart)
 echo proxy restarting...
 unsetProxy
 setProxy
-cp /usr/local/etc/v2ray/config.json /usr/local/etc/v2ray/config.json.bak
-cat ~/.proxy/config.json > /usr/local/etc/v2ray/config.json
-brew services restart v2ray-core
+brew services restart v2ray
 ;;
 
 status)
 echo checking proxy status...
 testProxy
-brew services list | grep v2ray-core
+brew services list | grep v2ray
 ;;
 
 upgrade)
@@ -110,7 +108,7 @@ echo -e '''
 init      Download and setup dependencies.
 start     Start your proxy and setup global proxy environment.
 stop      Stop your proxy and restore global proxy environment.
-restart   Restart proxy server (v2ray-core) .
+restart   Restart proxy server (v2ray) .
 status    Show proxy status.
 upgrade   Upgrade proxy config and current repository, and then restart proxy.
 '''
